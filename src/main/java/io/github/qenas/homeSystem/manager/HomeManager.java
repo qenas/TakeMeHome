@@ -1,23 +1,33 @@
 package io.github.qenas.homeSystem.manager;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 public class HomeManager {
     private JavaPlugin plugin;
     private File file;
     private FileConfiguration homeFile;
-
+    private Map<UUID, Location> homeLocation = new HashMap<>();
 
     public HomeManager(JavaPlugin plugin){
         this.plugin = plugin;
         setupFile();
+        loadHomes();
     }
+
+
+
+
 
 
     private void setupFile() {
@@ -54,6 +64,56 @@ public class HomeManager {
 
     private void reloadFile() {
         homeFile = YamlConfiguration.loadConfiguration(file);
+    }
+
+    public FileConfiguration getHomeFile(){
+        return homeFile;
+    }
+
+    public void saveHome(Player player, Location loc) {
+        String path = "home.players." + player.getUniqueId().toString();
+        String locationPath = path + ".location";
+
+        homeFile.set(path + ".name", player.getName());
+        homeFile.set(locationPath + ".world", loc.getWorld().getName());
+        homeFile.set(locationPath + ".x", loc.getX());
+        homeFile.set(locationPath + ".y", loc.getY());
+        homeFile.set(locationPath + ".z", loc.getZ());
+        homeFile.set(locationPath + ".yaw", loc.getYaw());
+        homeFile.set(locationPath + ".pitch", loc.getPitch());
+
+        saveFile();
+    }
+
+    public Location getHome(Player player) {
+        return homeLocation.get(player.getUniqueId());
+
+    }
+
+
+    private void loadHomes() {
+        if(!homeFile.contains("homes.players")) {
+            return;
+        }
+        for(String key: homeFile.getConfigurationSection("homes.players").getKeys(false)){
+            String path = "home.players" + key + ".location";
+
+            World world = Bukkit.getWorld(homeFile.getString(path + ".world"));
+            double x = homeFile.getDouble(path + ".x");
+            double y = homeFile.getDouble(path + ".y");
+            double z = homeFile.getDouble(path + ".z");
+            float yaw = (float) homeFile.getDouble(path + ".yaw");
+            float pitch = (float) homeFile.getDouble(path + ".pitch");
+
+            UUID playerUUID = UUID.fromString(key);
+            Location loc = new Location(world, x, y, z, yaw, pitch);
+
+            homeLocation.put(playerUUID, loc);
+        }
+
+
+
+
     }
 
 
