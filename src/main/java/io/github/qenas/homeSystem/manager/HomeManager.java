@@ -70,6 +70,11 @@ public class HomeManager {
         return homeFile;
     }
 
+    public boolean playerHasHome(Player player) {
+        return homeLocation.containsKey(player.getUniqueId());
+    }
+
+
     public void saveHome(Player player, Location loc) {
         String path = "home.players." + player.getUniqueId().toString();
         String locationPath = path + ".location";
