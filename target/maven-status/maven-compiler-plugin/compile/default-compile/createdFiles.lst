@@ -1,0 +1,5 @@
+io\github\qenas\homeSystem\HomeSystem.class
+io\github\qenas\homeSystem\manager\HomeManager.class
+io\github\qenas\homeSystem\manager\commands\Home.class
+io\github\qenas\homeSystem\manager\commands\SetHome.class
+io\github\qenas\homeSystem\manager\events\PlayerJoin.class
