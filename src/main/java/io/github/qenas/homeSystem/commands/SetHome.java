@@ -1,4 +1,4 @@
-package io.github.qenas.homeSystem.manager.commands;
+package io.github.qenas.homeSystem.commands;
 
 import io.github.qenas.homeSystem.manager.HomeManager;
 import org.bukkit.ChatColor;

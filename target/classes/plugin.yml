@@ -6,3 +6,6 @@ commands:
   sethome:
     description: Allows the player to save a home.
     usage: /sethome
+  home:
+    description: Teleports the executor to his home.
+    usage: /home

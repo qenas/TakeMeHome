@@ -1,9 +1,9 @@
 package io.github.qenas.homeSystem;
 
 import io.github.qenas.homeSystem.manager.HomeManager;
-import io.github.qenas.homeSystem.manager.commands.Home;
-import io.github.qenas.homeSystem.manager.commands.SetHome;
-import io.github.qenas.homeSystem.manager.events.PlayerJoin;
+import io.github.qenas.homeSystem.commands.Home;
+import io.github.qenas.homeSystem.commands.SetHome;
+import io.github.qenas.homeSystem.events.PlayerJoin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class HomeSystem extends JavaPlugin {

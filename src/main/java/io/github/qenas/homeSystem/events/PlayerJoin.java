@@ -1,4 +1,4 @@
-package io.github.qenas.homeSystem.manager.events;
+package io.github.qenas.homeSystem.events;
 
 import io.github.qenas.homeSystem.manager.HomeManager;
 import org.bukkit.ChatColor;
