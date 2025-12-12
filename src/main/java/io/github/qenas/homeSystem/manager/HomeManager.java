@@ -84,11 +84,9 @@ public class HomeManager {
 
     public void addPlayerToFile(Player player) {
         String path = "home.players." + player.getUniqueId().toString();
-        if(!playerIsOnFile(player)) {
-            homeFile.set(path + ".name", player.getName());
-            saveFile();
-            homeLocation.put(player.getUniqueId(), null); //puts the player to the map
-        }
+        homeFile.set(path + ".name", player.getName());
+        saveFile();
+        homeLocation.put(player.getUniqueId(), null); //puts the player to the map
     }
 
 
@@ -105,6 +103,8 @@ public class HomeManager {
         homeFile.set(locationPath + ".pitch", loc.getPitch());
 
         saveFile();
+
+        homeLocation.put(player.getUniqueId(), loc);
     }
 
     public Location getHome(Player player) {
