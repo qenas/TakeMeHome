@@ -34,7 +34,7 @@ public class TeleportManager {
 
             teleportTask.runTaskTimer(plugin, 0, 20L);
         } else {
-            player.sendMessage(ChatColor.RED + "You can not use this command right now. You must wait + " + cooldownManager.getCooldown(player) + " seconds.");
+            player.sendMessage(ChatColor.RED + "You can not use this command right now. You must wait " + cooldownManager.getCooldown(player) + " seconds.");
         }
 
     }
@@ -50,7 +50,7 @@ public class TeleportManager {
         activeTask.remove(player.getUniqueId());
 
         if(success) {
-            cooldownManager.setCooldown(player, 60);
+            cooldownManager.setCooldown(player, 60L);
         }
     }
 

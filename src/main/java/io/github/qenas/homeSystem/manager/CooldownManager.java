@@ -17,6 +17,7 @@ public class CooldownManager {
 
     public void setCooldown(Player player, long cooldownTime) {
         cooldownMap.put(player.getUniqueId(), System.currentTimeMillis() + cooldownTime * 1000);
+        System.out.println("setCooldown");
     }
 
     public long getCooldown(Player player) {
@@ -24,7 +25,7 @@ public class CooldownManager {
     }
 
     public boolean hasCooldown(Player player) {
-        return cooldownMap.containsKey(player) && System.currentTimeMillis() < cooldownMap.get(player.getUniqueId());
+        return cooldownMap.containsKey(player.getUniqueId()) && System.currentTimeMillis() < cooldownMap.get(player.getUniqueId());
     }
 
 
