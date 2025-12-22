@@ -2,6 +2,7 @@ package io.github.qenas.homeSystem.commands;
 
 import io.github.qenas.homeSystem.manager.CooldownManager;
 import io.github.qenas.homeSystem.manager.HomeManager;
+import io.github.qenas.homeSystem.manager.TeleportManager;
 import io.github.qenas.homeSystem.tasks.TeleportTask;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -18,13 +19,13 @@ import org.jetbrains.annotations.NotNull;
 public class Home implements CommandExecutor {
 
     private HomeManager homeManager;
-    private CooldownManager cooldownManager;
     private final JavaPlugin plugin;
+    private TeleportManager teleportManager;
 
-    public Home (HomeManager homeManager, CooldownManager cooldownManager, JavaPlugin plugin) {
+    public Home (HomeManager homeManager, TeleportManager teleportManager, JavaPlugin plugin) {
         this.homeManager = homeManager;
-        this.cooldownManager = cooldownManager;
         this.plugin = plugin;
+        this.teleportManager = teleportManager;
     }
 
     @Override
@@ -36,12 +37,8 @@ public class Home implements CommandExecutor {
         Player player = (Player) commandSender;
 
         if(homeManager.playerHasHome(player)) {
-            if(!cooldownManager.hasCooldown(player)) {
-                Location playerHome = homeManager.getHome(player);
-                teleportToHome(player, playerHome);
-            } else {
-                player.sendMessage(ChatColor.RED + "You can not use this command right now. You must wait + " + cooldownManager.getCooldown(player) + " seconds.");
-            }
+            Location playerHome = homeManager.getHome(player);
+
         } else {
             player.sendMessage("» You do not have a home");
         }
@@ -51,7 +48,7 @@ public class Home implements CommandExecutor {
     }
 
 
-    private void teleportToHome(Player player, Location home) {
+    /*private void teleportToHome(Player player, Location home) {
         Block startLocation = player.getLocation().getBlock();
         player.sendMessage(ChatColor.GREEN + "» Teleporting to your home in 10 seconds. Do not move...");
 
@@ -75,8 +72,5 @@ public class Home implements CommandExecutor {
            }
        }.runTaskTimer(plugin, 0, 20L); // delay: 20 ticks = 1 second
 
-        /*Bukkit.getScheduler().runTaskLater(plugin, () -> {
-
-        }, 20L * 10); // 20 ticks = 1 second -> 10 seconds = 20 ticks * 10*/
-    }
+    }*/
 }
