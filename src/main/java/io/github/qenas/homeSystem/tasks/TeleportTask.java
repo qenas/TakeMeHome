@@ -2,6 +2,7 @@ package io.github.qenas.homeSystem.tasks;
 
 import io.github.qenas.homeSystem.manager.CooldownManager;
 import io.github.qenas.homeSystem.manager.TeleportManager;
+import io.github.qenas.homeSystem.manager.TeleportScoreboardManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -13,14 +14,16 @@ public class TeleportTask extends BukkitRunnable {
 
     private JavaPlugin plugin;
     private TeleportManager teleportManager;
+    private TeleportScoreboardManager teleportScoreboardManager;
     private Player player;
     private Location home;
     private Block startLocation;
     private int timer;
 
-    public TeleportTask(JavaPlugin plugin, TeleportManager teleportManager, Player player, Location home) {
+    public TeleportTask(JavaPlugin plugin, TeleportManager teleportManager, TeleportScoreboardManager teleportScoreboardManager, Player player, Location home) {
         this.plugin = plugin;
         this.teleportManager = teleportManager;
+        this.teleportScoreboardManager = teleportScoreboardManager;
         this.player = player;
         this.home = home;
         this.startLocation = player.getLocation().getBlock(); // the location where the player used the command
@@ -42,6 +45,8 @@ public class TeleportTask extends BukkitRunnable {
             cancel();
             return;
         }
+
+        teleportScoreboardManager.update(player, timer);
 
         if(timer <= 0) { //timer = 0 - > teleports the player
             player.teleport(home);

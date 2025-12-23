@@ -9,3 +9,6 @@ commands:
   home:
     description: Teleports the executor to his home.
     usage: /home
+  myhome:
+    description: Shows to the executor the coordinates of this home.
+    usage: /myhome

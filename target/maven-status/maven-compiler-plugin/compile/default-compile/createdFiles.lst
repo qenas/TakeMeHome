@@ -1,9 +1,11 @@
 io\github\qenas\homeSystem\HomeSystem.class
 io\github\qenas\homeSystem\commands\Home.class
 io\github\qenas\homeSystem\manager\HomeManager.class
+io\github\qenas\homeSystem\commands\MyHome.class
 io\github\qenas\homeSystem\manager\CooldownManager.class
 io\github\qenas\homeSystem\commands\SetHome.class
 io\github\qenas\homeSystem\resourse\CoordinatesShower.class
 io\github\qenas\homeSystem\tasks\TeleportTask.class
+io\github\qenas\homeSystem\manager\TeleportScoreboardManager.class
 io\github\qenas\homeSystem\events\PlayerJoin.class
 io\github\qenas\homeSystem\manager\TeleportManager.class

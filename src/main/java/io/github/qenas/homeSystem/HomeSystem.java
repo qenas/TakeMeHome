@@ -7,6 +7,7 @@ import io.github.qenas.homeSystem.commands.Home;
 import io.github.qenas.homeSystem.commands.SetHome;
 import io.github.qenas.homeSystem.events.PlayerJoin;
 import io.github.qenas.homeSystem.manager.TeleportManager;
+import io.github.qenas.homeSystem.manager.TeleportScoreboardManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class HomeSystem extends JavaPlugin {
@@ -14,13 +15,15 @@ public final class HomeSystem extends JavaPlugin {
     HomeManager homeManager;
     CooldownManager cooldownManager;
     TeleportManager teleportManager;
+    TeleportScoreboardManager teleportScoreboardManager;
 
     @Override
     public void onEnable() {
 
         homeManager = new HomeManager(this);
         cooldownManager = new CooldownManager(this);
-        teleportManager = new TeleportManager(this, cooldownManager);
+        teleportScoreboardManager = new TeleportScoreboardManager(this);
+        teleportManager = new TeleportManager(this, cooldownManager, teleportScoreboardManager);
 
         getServer().getPluginManager().registerEvents(new PlayerJoin(homeManager), this);
         getCommand("sethome").setExecutor(new SetHome(homeManager));

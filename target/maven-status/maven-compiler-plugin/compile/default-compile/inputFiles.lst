@@ -1,9 +1,11 @@
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\commands\Home.java
+C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\commands\MyHome.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\commands\SetHome.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\events\PlayerJoin.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\HomeSystem.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\manager\CooldownManager.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\manager\HomeManager.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\manager\TeleportManager.java
+C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\manager\TeleportScoreboardManager.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\resourse\CoordinatesShower.java
 C:\Users\Claudio\Documents\minecraft\HomeSystem\src\main\java\io\github\qenas\homeSystem\tasks\TeleportTask.java

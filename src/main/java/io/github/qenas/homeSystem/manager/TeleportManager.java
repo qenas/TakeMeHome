@@ -13,11 +13,13 @@ import java.util.UUID;
 public class TeleportManager {
     private JavaPlugin plugin;
     private CooldownManager cooldownManager;
+    private TeleportScoreboardManager teleportScoreboardManager;
     private Map<UUID, TeleportTask> activeTask = new HashMap<>();
 
-    public TeleportManager(JavaPlugin plugin, CooldownManager cooldownManager) {
+    public TeleportManager(JavaPlugin plugin, CooldownManager cooldownManager, TeleportScoreboardManager teleportScoreboardManager) {
         this.plugin = plugin;
         this.cooldownManager = cooldownManager;
+        this.teleportScoreboardManager = teleportScoreboardManager;
     }
 
     public void startTeleport(Player player, Location home) {
@@ -29,8 +31,10 @@ public class TeleportManager {
         }
 
         if(!cooldownManager.hasCooldown(player)) { //verify if the command has been used early by the player
-            TeleportTask teleportTask = new TeleportTask(plugin, this, player, home);
+            TeleportTask teleportTask = new TeleportTask(plugin, this, teleportScoreboardManager, player, home);
             activeTask.put(playerUUID, teleportTask);
+
+            teleportScoreboardManager.display(player, 10);
 
             teleportTask.runTaskTimer(plugin, 0, 20L);
         } else {
@@ -51,6 +55,7 @@ public class TeleportManager {
 
         if(success) {
             cooldownManager.setCooldown(player, 60L);
+            teleportScoreboardManager.remove(player);
         }
     }
 
