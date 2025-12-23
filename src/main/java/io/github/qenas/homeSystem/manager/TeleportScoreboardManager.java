@@ -28,17 +28,17 @@ public class TeleportScoreboardManager {
 
         Scoreboard scoreboard = manager.getNewScoreboard();
 
-        Objective objective = scoreboard.registerNewObjective("home_tp", Criteria.DUMMY, ChatColor.GOLD + "Home");
+        Objective objective = scoreboard.registerNewObjective("home_tp", Criteria.DUMMY, ChatColor.GOLD.toString() + ChatColor.BOLD + "Home");
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 
 
-        Score line1 = objective.getScore(ChatColor.GRAY + SPACER);
-        line1.setScore(1);
-        Score teleportCooldown = objective.getScore(ChatColor.GREEN + "» Time remaining: " + seconds);
-        teleportCooldown.setScore(2);
         Score line2 = objective.getScore(ChatColor.GRAY + SPACER);
         line2.setScore(3);
+        Score teleportCooldown = objective.getScore(ChatColor.GREEN + "» Time remaining: " + seconds);
+        teleportCooldown.setScore(2);
+        Score line1 = objective.getScore(ChatColor.GRAY + SPACER + " ");
+        line1.setScore(1);
 
         player.setScoreboard(scoreboard);
         activeSB.put(player.getUniqueId(), scoreboard);
@@ -57,12 +57,12 @@ public class TeleportScoreboardManager {
 
         scoreboard.getEntries().forEach(scoreboard::resetScores);
 
-        Score line1 = objective.getScore(ChatColor.GRAY + SPACER);
-        line1.setScore(1);
-        Score teleportCooldown = objective.getScore(ChatColor.GREEN + "» Time remaining: " + seconds);
-        teleportCooldown.setScore(2);
         Score line2 = objective.getScore(ChatColor.GRAY + SPACER);
         line2.setScore(3);
+        Score teleportCooldown = objective.getScore(ChatColor.GREEN + "» Time remaining: " + seconds);
+        teleportCooldown.setScore(2);
+        Score line1 = objective.getScore(ChatColor.GRAY + SPACER + " ");
+        line1.setScore(1);
 
     }
 

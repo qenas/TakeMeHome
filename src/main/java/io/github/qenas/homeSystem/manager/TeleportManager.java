@@ -53,9 +53,11 @@ public class TeleportManager {
     public void finishTeleport(Player player, boolean success) {
         activeTask.remove(player.getUniqueId());
 
+        teleportScoreboardManager.remove(player);
+
         if(success) {
             cooldownManager.setCooldown(player, 60L);
-            teleportScoreboardManager.remove(player);
+
         }
     }
 

@@ -56,7 +56,7 @@ public class TeleportTask extends BukkitRunnable {
             return;
         }
 
-        player.sendMessage(ChatColor.GREEN + "» Teleporting in " + timer +  " seconds...");
+        //player.sendMessage(ChatColor.GREEN + "» Teleporting in " + timer +  " seconds...");
         timer--;
     }
 }
