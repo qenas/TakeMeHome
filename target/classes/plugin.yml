@@ -1,6 +1,6 @@
-name: HomeSystem
-version: '0.0.1'
-main: io.github.qenas.homeSystem.HomeSystem
+name: TakeMeHome
+version: '1.2'
+main: io.github.qenas.takeMeHome.TakeMeHome
 api-version: '1.21'
 commands:
   sethome:

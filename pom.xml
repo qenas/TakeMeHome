@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.qenas</groupId>
-    <artifactId>HomeSystem</artifactId>
-    <version>0.0.1</version>
+    <artifactId>TakeMeHome</artifactId>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
-    <name>HomeSystem</name>
+    <name>TakeMeHome</name>
 
     <properties>
         <java.version>21</java.version>
