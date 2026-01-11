@@ -30,13 +30,21 @@ public class TeleportManager {
             return;
         }
 
+
+
         if(!cooldownManager.hasCooldown(player)) { //verify if the command has been used early by the player
-            TeleportTask teleportTask = new TeleportTask(plugin, this, scoreboardManager, player, home);
-            activeTask.put(playerUUID, teleportTask);
+            boolean isCooldownAllowed = this.plugin.getConfig().getBoolean("cooldown");
 
-            scoreboardManager.display(player, 10);
+            if(isCooldownAllowed) { //config file - > "cooldown = true"
+                TeleportTask teleportTask = new TeleportTask(plugin, this, scoreboardManager, player, home);
+                activeTask.put(playerUUID, teleportTask);
 
-            teleportTask.runTaskTimer(plugin, 0, 20L);
+                scoreboardManager.display(player, 10);
+
+                teleportTask.runTaskTimer(plugin, 0, 20L);
+            } else { //config file - > "cooldown = false" (teleports the player without hesitation)
+                player.teleport(home);
+            }
         } else {
             player.sendMessage(ChatColor.RED + "You can not use this command right now. You must wait " + cooldownManager.getCooldown(player) + " seconds.");
         }

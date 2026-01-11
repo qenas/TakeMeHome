@@ -49,7 +49,6 @@ public class TeleportTask extends BukkitRunnable {
 
         if(timer <= 0) { //timer = 0 - > teleports the player
             player.teleport(home);
-            player.sendMessage(ChatColor.GREEN + "» You have been teleported to your house.");
             teleportManager.finishTeleport(player, true);
             cancel();
             return;

@@ -20,6 +20,8 @@ public final class TakeMeHome extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        saveDefaultConfig();
+
         homeManager = new HomeManager(this);
         cooldownManager = new CooldownManager(this);
         scoreboardManager = new ScoreboardManager(this);

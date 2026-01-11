@@ -2,6 +2,7 @@ package io.github.qenas.takeMeHome.commands;
 
 import io.github.qenas.takeMeHome.manager.HomeManager;
 import io.github.qenas.takeMeHome.manager.TeleportManager;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -33,7 +34,7 @@ public class Home implements CommandExecutor {
         if(homeManager.hasHome(player)) {
             Location playerHome = homeManager.getHome(player);
             teleportManager.startTeleport(player, playerHome);
-
+            player.sendMessage(ChatColor.GREEN + "» You have been teleported to your house.");
         } else {
             player.sendMessage("» You do not have a home");
         }
