@@ -1,11 +1,11 @@
 io\github\qenas\takeMeHome\commands\SetHome.class
-io\github\qenas\takeMeHome\manager\ScoreboardManager.class
 io\github\qenas\takeMeHome\commands\Home.class
 io\github\qenas\takeMeHome\commands\MyHome.class
-io\github\qenas\takeMeHome\manager\TeleportManager.class
 io\github\qenas\takeMeHome\manager\HomeManager.class
-io\github\qenas\takeMeHome\resourse\CoordinatesShower.class
 io\github\qenas\takeMeHome\TakeMeHome.class
 io\github\qenas\takeMeHome\events\PlayerJoin.class
-io\github\qenas\takeMeHome\manager\CooldownManager.class
 io\github\qenas\takeMeHome\tasks\TeleportTask.class
+io\github\qenas\takeMeHome\manager\ScoreboardManager.class
+io\github\qenas\takeMeHome\manager\TeleportManager.class
+io\github\qenas\takeMeHome\resourse\CoordinatesShower.class
+io\github\qenas\takeMeHome\manager\CooldownManager.class
