@@ -1,3 +1,5 @@
 #TakeMeHome config file.
 
-cooldown: true
+cooldown:
+  allowed: true
+  duration: 60

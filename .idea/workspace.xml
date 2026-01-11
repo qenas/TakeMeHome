@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b605931f-39b5-4e28-b12f-604c25ff576e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/qenas/takeMeHome/TakeMeHome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/qenas/takeMeHome/TakeMeHome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/qenas/takeMeHome/commands/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/qenas/takeMeHome/commands/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/qenas/takeMeHome/manager/TeleportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/qenas/takeMeHome/manager/TeleportManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/io/github/qenas/takeMeHome/TakeMeHome.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/io/github/qenas/takeMeHome/TakeMeHome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-TakeMeHome-1.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-TakeMeHome-1.2.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

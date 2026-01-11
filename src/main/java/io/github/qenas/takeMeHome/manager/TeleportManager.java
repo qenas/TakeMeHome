@@ -30,23 +30,21 @@ public class TeleportManager {
             return;
         }
 
+        boolean isCooldownAllowed = this.plugin.getConfig().getBoolean("cooldown.allowed");
 
-
-        if(!cooldownManager.hasCooldown(player)) { //verify if the command has been used early by the player
-            boolean isCooldownAllowed = this.plugin.getConfig().getBoolean("cooldown");
-
-            if(isCooldownAllowed) { //config file - > "cooldown = true"
+        if(isCooldownAllowed) { //config file - > "cooldown = true"
+            if(!cooldownManager.hasCooldown(player)) { //verify if the command has been used early by the player
                 TeleportTask teleportTask = new TeleportTask(plugin, this, scoreboardManager, player, home);
                 activeTask.put(playerUUID, teleportTask);
 
                 scoreboardManager.display(player, 10);
 
                 teleportTask.runTaskTimer(plugin, 0, 20L);
-            } else { //config file - > "cooldown = false" (teleports the player without hesitation)
-                player.teleport(home);
+            } else {
+                player.sendMessage(ChatColor.RED + "You can not use this command right now. You must wait " + cooldownManager.getCooldown(player) + " seconds.");
             }
-        } else {
-            player.sendMessage(ChatColor.RED + "You can not use this command right now. You must wait " + cooldownManager.getCooldown(player) + " seconds.");
+        } else { //config file - > "cooldown = false" (teleports the player without hesitation)
+            player.teleport(home);
         }
 
     }
@@ -64,7 +62,8 @@ public class TeleportManager {
         scoreboardManager.remove(player);
 
         if(success) {
-            cooldownManager.setCooldown(player, 60L);
+            int cooldownDuration = this.plugin.getConfig().getInt("cooldown.duration");
+            cooldownManager.setCooldown(player, cooldownDuration);
 
         }
     }
